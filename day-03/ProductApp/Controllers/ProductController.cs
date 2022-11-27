@@ -50,12 +50,17 @@ namespace ProductApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateOneProductWithView(Product product)
         {
-            _context.Products.Add(product);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            return View();
         }
 
 
@@ -75,6 +80,22 @@ namespace ProductApp.Controllers
             _context.Products.Update(product);
             _context.SaveChanges();
 
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        //public IActionResult DeleteOneProduct(int id)
+        //{
+        //    _context.Products.Remove(new Product { Id = id });
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Index");
+        //}
+        public IActionResult DeleteOneProduct(Product product)
+        {
+            _context.Products.Remove(product);
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
