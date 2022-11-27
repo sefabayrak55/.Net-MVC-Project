@@ -19,6 +19,7 @@ namespace Entities.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage ="Category Name is Required!")]
+        [MinLength(5, ErrorMessage = "CategoryName consist of 5 chacracter")]
         public string CategoryName { get; set; }
 
         public string Description { get; set; }

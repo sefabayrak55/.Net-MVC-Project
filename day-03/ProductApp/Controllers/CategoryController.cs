@@ -25,21 +25,19 @@ namespace ProductApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateOneCategory(Category category)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Categories.Add(category);
-            //    _context.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
             if (category is null)
                 throw new Exception();
 
-            _context.Categories.Add(category);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]
@@ -53,13 +51,27 @@ namespace ProductApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult UpdateOneCategory(Category category)
         {
             if (category is null)
                 throw new Exception();
 
-            _context.Categories.Update(category);
+            if(ModelState.IsValid)
+            {
+                _context.Categories.Update(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteOneCategory(Category category)
+        {
+            _context.Categories.Remove(category);
             _context.SaveChanges();
+
             return RedirectToAction("Index");
         }
     }

@@ -3,11 +3,12 @@
 <form method="post" asp-action="UpdateOneCategory" asp-controller="Category">
     <div class="form-group">
         <input type="text" id="CategoryName" asp-for="CategoryName" placeholder="Category Name" />
+        <span class="text-danger" asp-validation-for="CategoryName"></span>
     </div>
 
     <div class="form-group">
         <input type="text" id="CategoryDescription" asp-for="Description" placeholder="Product Description" />
     </div>
 
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-info">Update</button>
 </form>
