@@ -12,7 +12,7 @@ using Repositories.EFCore;
 namespace ProductApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20221127072604_init")]
+    [Migration("20221127121406_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,49 @@ namespace ProductApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("...");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Bilgisayar",
+                            Description = "..."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "SmartPhone",
+                            Description = "..."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryName = "Electronic",
+                            Description = "..."
+                        });
+                });
 
             modelBuilder.Entity("Entities.Models.Product", b =>
                 {
@@ -62,7 +105,7 @@ namespace ProductApp.Migrations
                         new
                         {
                             Id = 1,
-                            AtCreated = new DateTime(2022, 11, 27, 10, 26, 3, 996, DateTimeKind.Local).AddTicks(1917),
+                            AtCreated = new DateTime(2022, 11, 27, 15, 14, 6, 59, DateTimeKind.Local).AddTicks(3080),
                             Description = "HP Laptop Touch your Dreams",
                             ImageUrl = "/images/products/1.jpg",
                             Price = 15000m,
@@ -71,7 +114,7 @@ namespace ProductApp.Migrations
                         new
                         {
                             Id = 2,
-                            AtCreated = new DateTime(2022, 11, 27, 10, 26, 3, 996, DateTimeKind.Local).AddTicks(1937),
+                            AtCreated = new DateTime(2022, 11, 27, 15, 14, 6, 59, DateTimeKind.Local).AddTicks(3096),
                             Description = "Airpods for your ears",
                             ImageUrl = "/images/products/2.jpg",
                             Price = 5000m,
@@ -80,7 +123,7 @@ namespace ProductApp.Migrations
                         new
                         {
                             Id = 3,
-                            AtCreated = new DateTime(2022, 11, 27, 10, 26, 3, 996, DateTimeKind.Local).AddTicks(1939),
+                            AtCreated = new DateTime(2022, 11, 27, 15, 14, 6, 59, DateTimeKind.Local).AddTicks(3098),
                             Price = 7000m,
                             ProductName = "Samsun Galaxy Note FE"
                         });

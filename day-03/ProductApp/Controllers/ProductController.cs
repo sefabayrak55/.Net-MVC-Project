@@ -86,8 +86,7 @@ namespace ProductApp.Controllers
 
                 return RedirectToAction("Index");
             }
-            return View();
-            
+            return View();  
         }
 
         [HttpPost]

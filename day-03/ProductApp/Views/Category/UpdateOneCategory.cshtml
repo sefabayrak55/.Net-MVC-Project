@@ -1,0 +1,13 @@
+﻿@model Category
+
+<form method="post" asp-action="UpdateOneCategory" asp-controller="Category">
+    <div class="form-group">
+        <input type="text" id="CategoryName" asp-for="CategoryName" placeholder="Category Name" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="CategoryDescription" asp-for="Description" placeholder="Product Description" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

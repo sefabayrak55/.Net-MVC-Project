@@ -1,0 +1,15 @@
+﻿@model List<Category>
+
+<div>
+    <ul class="list-group">
+        @foreach (var categoryItem in Model)
+        {
+            <li class="list-group-item">
+                <p>@categoryItem.CategoryName</p>
+                <a asp-controller="Category"
+                   asp-action="UpdateOneCategory"
+               asp-route-id="@categoryItem.Id" class="btn btn-warning">Update</a>
+            </li>
+        }
+    </ul>
+</div>

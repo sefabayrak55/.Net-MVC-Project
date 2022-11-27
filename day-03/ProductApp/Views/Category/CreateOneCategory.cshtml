@@ -1,0 +1,8 @@
+﻿@model Category
+
+<form method="post" asp-action="CreateOneCategory" asp-controller="Category">
+    <div class="form-group my-3">
+        <input type="text" asp-for="CategoryName" placeholder="CategoryName" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-success">Create Category</button>
+</form>

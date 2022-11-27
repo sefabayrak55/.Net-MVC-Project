@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\bayraksefa\Desktop\dotnetmvcbootcamp-master\day-03\ProductApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/bayraksefa/Desktop/dotnetmvcbootcamp-master/day-03/ProductApp/Views/Category/CreateOneCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlT25lQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bayraksefa/Desktop/dotnetmvcbootcamp-master/day-03/ProductApp/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bayraksefa/Desktop/dotnetmvcbootcamp-master/day-03/ProductApp/Views/Category/UpdateOneCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcVXBkYXRlT25lQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/bayraksefa/Desktop/dotnetmvcbootcamp-master/day-03/ProductApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

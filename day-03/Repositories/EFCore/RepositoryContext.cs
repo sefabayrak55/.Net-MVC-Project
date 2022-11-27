@@ -21,7 +21,6 @@ namespace Repositories.EFCore
         {
             modelBuilder.ApplyConfiguration(new ProductConfig());
             modelBuilder.ApplyConfiguration(new CategoryConfig());
-
         }
     }
 }
