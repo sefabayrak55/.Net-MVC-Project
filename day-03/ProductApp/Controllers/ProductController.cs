@@ -75,13 +75,19 @@ namespace ProductApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult UpdateOneProduct(Product product)
         {
-            _context.Products.Update(product);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Products.Update(product);
+                _context.SaveChanges();
 
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View();
+            
         }
 
         [HttpPost]
