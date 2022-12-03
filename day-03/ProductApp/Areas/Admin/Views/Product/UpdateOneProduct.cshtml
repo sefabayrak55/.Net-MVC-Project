@@ -1,6 +1,6 @@
 ﻿@model Product
 
-<form method="post" asp-action="UpdateOneProduct" asp-controller="Product">
+<form method="post" asp-action="UpdateOneProduct" asp-controller="Product" asp-area="Admin">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <input type="text" id="ProductName" asp-for="ProductName" placeholder="Product Name" />
@@ -17,4 +17,12 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<form method="post" asp-action="DeleteOneProduct" asp-controller="Product">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger mx-1 my-1" asp-controller="Product"
+            asp-action="DeleteOneProduct"
+            asp-area="Admin">
+        Delete
+    </button>
 </form>

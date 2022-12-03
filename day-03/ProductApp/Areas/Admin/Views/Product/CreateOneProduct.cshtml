@@ -1,15 +1,15 @@
 ﻿@model Product
 
-<form 
-    method="post"
-    asp-controller="Product"
-    asp-action="CreateOneProductWithView" > 
+<form method="post"
+      asp-controller="Product"
+      asp-action="CreateOneProduct"
+      asp-area="Admin">
 
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="form-group my-3">
         <label for="ProductName">Product Name</label>
-        <input type="text" id="ProductName" asp-for="ProductName" class="form-control"  aria-describedby="ProductHelp" placeholder="Product Name">
+        <input type="text" id="ProductName" asp-for="ProductName" class="form-control" aria-describedby="ProductHelp" placeholder="Product Name">
         <small id="ProductHelp" class="form-text text-muted">Product Name is a required field.</small>
         <span class="text-danger" asp-validation-for="ProductName"></span>
     </div>
@@ -21,7 +21,7 @@
         <span class="text-danger" asp-validation-for="Price"></span>
     </div>
 
-     <div class="form-group my-3">
+    <div class="form-group my-3">
         <label for="Description">Description</label>
         <input type="text" id="Description" asp-for="Description" class="form-control" placeholder="Description">
     </div>
@@ -30,7 +30,9 @@
         <label for="ImageUrl">ImageUrl</label>
         <input type="text" id="ImageUrl" asp-for="ImageUrl" class="form-control" placeholder="ImageUrl">
     </div>
-    <br/>
-    <button class="btn btn-primary" 
-            type="submit"> Create Product </button>
+    <br />
+    <button class="btn btn-primary"
+            type="submit">
+        Create Product
+    </button>
 </form>

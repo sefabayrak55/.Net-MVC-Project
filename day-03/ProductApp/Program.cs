@@ -1,15 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using ProductApp.Extensions;
 using Repositories.EFCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllersWithViews();
+builder.Services.ConfigureDBContext(builder.Configuration);
 
-builder.Services.AddDbContext<RepositoryContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection"), 
-prj => prj.MigrationsAssembly("ProductApp")
-));
+
 
 var app = builder.Build();
 
@@ -28,8 +26,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapAreaControllerRoute(
+        name:"Admin",
+        areaName:"Admin",
+        pattern:"Admin/{controller=Home}/{action=Index}/{id?}"
+        );
 
+    endpoints.MapControllerRoute(
+        name:"default",
+        pattern:"{controller=Home}/{action=Index}"
+        );
+});
 app.Run();
