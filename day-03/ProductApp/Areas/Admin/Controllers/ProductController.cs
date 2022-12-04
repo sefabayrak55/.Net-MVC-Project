@@ -17,6 +17,7 @@ namespace ProductApp.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var products = _context.Products.ToList();
+            TempData["info"] = "Products have been listed!";
             return View(products);
         }
 
@@ -35,6 +36,7 @@ namespace ProductApp.Areas.Admin.Controllers
             {
                 _context.Products.Add(product);
                 _context.SaveChanges();
+                TempData["added"] = "Products have been added!";
                 return RedirectToAction("Index");
             }
 

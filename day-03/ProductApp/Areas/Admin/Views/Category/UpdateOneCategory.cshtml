@@ -1,6 +1,6 @@
 ﻿@model Category
 
-<form method="post" asp-action="UpdateOneCategory" asp-controller="Category">
+<form method="post" asp-action="UpdateOneCategory" asp-controller="Category" asp-area="Admin">
     <div class="form-group">
         <input type="text" id="CategoryName" asp-for="CategoryName" placeholder="Category Name" />
         <span class="text-danger" asp-validation-for="CategoryName"></span>
@@ -11,4 +11,11 @@
     </div>
 
     <button type="submit" class="btn btn-info">Update</button>
+</form>
+<form method="post" asp-action="DeleteOneCategory" asp-controller="Category" asp-area="Admin">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger my-1" asp-controller="Category"
+            asp-action="DeleteOneCategory">
+        Sil
+    </button>
 </form>

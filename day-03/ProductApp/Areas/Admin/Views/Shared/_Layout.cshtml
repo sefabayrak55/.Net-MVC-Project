@@ -22,7 +22,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
@@ -35,6 +35,19 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @if (TempData["info"] != null)
+            {
+                <div class="alert alert-info" role="alert">
+                    @TempData["info"]
+                </div>
+            }
+            
+            @if (TempData["added"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["added"]
+                </div>
+            }
             @RenderBody()
         </main>
     </div>
